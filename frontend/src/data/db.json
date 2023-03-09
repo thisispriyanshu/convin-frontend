@@ -1,0 +1,65 @@
+[
+    {
+        "bucketId": 1,
+        "bucket": "Educatinal Videos",
+        "videos": [
+            {
+                "videoId": 1,
+                "videoTitle": "Hashing Maps",
+                "videoLink": "https://www.youtube.com/watch?v=KEs5UyBJ39g"
+            },
+            {
+                "videoId": 2,
+                "videoTitle": "HTML",
+                "videoLink": "https://www.youtube.com/watch?v=HcOc7P5BMi4"
+            },
+            {
+                "videoId": 3,
+                "videoTitle": "CSS",
+                "videoLink": "https://youtu.be/Edsxf_NBFrw"
+            }
+        ]
+    },
+    {
+        "bucketId": 2,
+        "bucket": "Comedy Videos",
+        "videos": [
+            {
+                "videoId": 4,
+                "videoTitle": "Hashing Maps",
+                "videoLink": "https://www.youtube.com/watch?v=KEs5UyBJ39g"
+            },
+            {
+                "videoId": 5,
+                "videoTitle": "HTML",
+                "videoLink": "https://www.youtube.com/watch?v=HcOc7P5BMi4"
+            },
+            {
+                "videoId": 6,
+                "videoTitle": "CSS",
+                "videoLink": "https://youtu.be/Edsxf_NBFrw"
+            }
+        ]
+    },
+    {
+        "bucketId": 3,
+        "bucket": "Sci-Fi Videos",
+        "videos": [
+            {
+                "videoId": 7,
+                "videoTitle": "Hashing Maps",
+                "videoLink": "https://www.youtube.com/watch?v=KEs5UyBJ39g"
+            },
+            {
+                "videoId": 8,
+                "videoTitle": "HTML",
+                "videoLink": "https://www.youtube.com/watch?v=HcOc7P5BMi4"
+            },
+            {
+                "videoId": 9,
+                "videoTitle": "CSS",
+                "videoLink": "https://youtu.be/Edsxf_NBFrw"
+            }
+        ]
+    }
+]
