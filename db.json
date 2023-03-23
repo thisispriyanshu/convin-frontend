@@ -1,0 +1,51 @@
+{
+    "buckets": [
+        {
+            "bucketId": 1,
+            "bucket": "Educatinal Videos",
+            "videos": [101,105]
+        },
+        {
+            "bucketId": 2,
+            "bucket": "Comedy Videos",
+            "videos": [102,104]
+        },
+        {
+            "bucketId": 3,
+            "bucket": "Sci-Fi Videos",
+            "videos": [103]
+        }
+    ],
+    "videos": [
+        {
+            "id": 101,
+            "title": "Harry",
+            "link": "https",
+            "bucketId": 1
+        },
+        {
+            "id": 102,
+            "title": "Harry-2",
+            "link": "https",
+            "bucketId": 2
+        },
+        {
+            "id": 103,
+            "title": "Harry-3",
+            "link": "https",
+            "bucketId": 3
+        },
+        {
+            "id": 104,
+            "title": "Harry-4",
+            "link": "https",
+            "bucketId": 2
+        },
+        {
+            "id": 105,
+            "title": "Harry-5",
+            "link": "https",
+            "bucketId": 1
+        }
+    ]
+}
