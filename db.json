@@ -2,17 +2,17 @@
     "buckets": [
         {
             "bucketId": 1,
-            "bucket": "Educatinal Videos",
+            "title": "Educatinal Videos",
             "videos": [101,105]
         },
         {
             "bucketId": 2,
-            "bucket": "Comedy Videos",
+            "title": "Comedy Videos",
             "videos": [102,104]
         },
         {
             "bucketId": 3,
-            "bucket": "Sci-Fi Videos",
+            "title": "Sci-Fi Videos",
             "videos": [103]
         }
     ],

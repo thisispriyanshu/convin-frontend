@@ -4,10 +4,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+// import Buckets from 'frontend\data\db.json'
 
 export default function BucketHomePage() {
   return (
     <Container fluid="md">
+        {/* {
+          Buckets.map(item)
+        } */}
         <Row>
         <h3>Education Videos</h3>
         </Row>
@@ -48,7 +52,7 @@ export default function BucketHomePage() {
     <Col>
     <Button>View All</Button>
     </Col>
-        </Row>  
+        </Row>
     </Container>
   )
 }

@@ -11,7 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Header() {
   return (
-    <Router>
+    // <Router>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="">ConVin Tube</Navbar.Brand>
@@ -19,14 +19,14 @@ export default function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/history">History</Nav.Link>
+            <Nav.Link href="/historyPage">History</Nav.Link>
             <NavDropdown title="Buckets" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/videoPage">Comedy Videos</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Education Videos</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Vocational Videos</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.4">Sci-Fi Videos</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/createCard" className='bg-primary text-black'>Create New Card</Nav.Link>
+            <Nav.Link href="/CardCreate" className='bg-primary text-black'>Create New Card</Nav.Link>
           </Nav>
           <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
@@ -36,11 +36,11 @@ export default function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <Routes>
-          <Route exact path='/history' element={<HistoryPage/>}></Route>
-          <Route exact path='/createCard' element={<CardCreate/>}></Route>
-          <Route exact path='/videoPage' element={<VideoPage/>}></Route>
-        </Routes>
-    </Router>
+    // <Routes>
+          // {/* <Route exact path='/history' element={<HistoryPage/>}></Route> */}
+          // {/* <Route exact path='/createCard' element={<CardCreate/>}></Route> */}
+          // {/* <Route exact path='/videoPage' element={<VideoPage/>}></Route> */}
+        // {/* </Routes> */}
+    // </Router>
   )
 }
