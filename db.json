@@ -2,7 +2,7 @@
     "buckets": [
         {
             "bucketId": 1,
-            "title": "Educatinal Videos",
+            "title": "Educational Videos",
             "videos": [101,105]
         },
         {

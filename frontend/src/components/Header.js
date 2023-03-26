@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 import HistoryPage from '../pages/HistoryPage';
 import CardCreate from '../pages/CardCreate';
 import VideoPage from '../pages/VideosPage'
+import { useState ,useEffect} from 'react';
 
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
@@ -10,6 +11,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Header() {
+  const [bucket,setBucket]=useState([]);
+  const fetchBuckets= async()=>{
+  fetch("http://localhost:3000/buckets")
+  .then((response) => response.json())
+  .then((data) => setBucket((pre)=>{
+    return [...data];
+  }));
+  }
+  useEffect(()=>{
+    fetchBuckets();
+  },[]);
   return (
     // <Router>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -21,10 +33,11 @@ export default function Header() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/historyPage">History</Nav.Link>
             <NavDropdown title="Buckets" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/videoPage">Comedy Videos</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Education Videos</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Vocational Videos</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Sci-Fi Videos</NavDropdown.Item>
+              {
+                bucket.map((buc,index)=>{
+              return(<NavDropdown.Item href="/videoPage" bucket={{id:buc.bucketId}}>{buc.title}</NavDropdown.Item>)
+                })
+              }
             </NavDropdown>
             <Nav.Link href="/CardCreate" className='bg-primary text-black'>Create New Card</Nav.Link>
           </Nav>
@@ -36,11 +49,6 @@ export default function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    // <Routes>
-          // {/* <Route exact path='/history' element={<HistoryPage/>}></Route> */}
-          // {/* <Route exact path='/createCard' element={<CardCreate/>}></Route> */}
-          // {/* <Route exact path='/videoPage' element={<VideoPage/>}></Route> */}
-        // {/* </Routes> */}
-    // </Router>
+
   )
 }

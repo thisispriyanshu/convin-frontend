@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState ,useEffect} from 'react';
-
+import Header from '../components/Header'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import {toast} from 'react-toastify'
@@ -9,44 +9,39 @@ export default function CardCreate() {
   
   const [title,setTitle]=useState("");
   const [link,setLink]=useState("");
-  const [bucketId,setBucketId]=useState(null);
+  const [bucketId,setBucketId]=useState();
   const [bucket,setBucket]=useState([]);
-  // const buckets=['b1','b2','b3'];
+  const [videoId,setVideoId]=useState([]);
   const fetchBuckets= async()=>{
-    let buckets= await fetch("https://my-json-server.typicode.com/thisispriyanshu/convin-frontend/buckets",{
-      method:"GET",
-      body:JSON.stringify({
-        bucketId:bucketId,
-        title:title,
-      })
-    });
-
-    setBucket((pre)=>{
-      return [...buckets];
-    })
-   
+  fetch("http://localhost:3000/buckets")
+  .then((response) => response.json())
+  .then((data) => setBucket((pre)=>{
+    return [...data];
+  }));
   }
   
   useEffect(()=>{
     fetchBuckets();
   },[]);
+  
+
   let handleSubmit=async(e)=>{
     e.preventDefault();
     try{
-    let res=await fetch("https://my-json-server.typicode.com/thisispriyanshu/convin-frontend/videos",{
+    let res=await fetch("http://localhost:3000/videos",{
       method: "POST",
+      headers: {"Content-Type": "application/json"},
       body:JSON.stringify({
         title:title,
         link:link,
         bucketId:bucketId,
       }),
     });
-    // let resJson=await res.json;
-    // console.log(obj)
-    if(res.status===200){
+    
+    if(res.status===201){
       setTitle("");
       setLink("");
-      setBucketId("");
+      setBucketId();
       toast.success("Card Saved Sucessfully")
     }
     else{
@@ -59,6 +54,9 @@ export default function CardCreate() {
   }
   
   return (
+    <div>
+      <Header/>
+      <br/>
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicVideoTitle">
         <Form.Label>Video Title</Form.Label>
@@ -73,20 +71,21 @@ export default function CardCreate() {
       <Form.Group className="mb-3">
           <Form.Label htmlFor="cardSelect">Select Card Bucket</Form.Label>
           <Form.Select id="cardSelect" as="select" value={bucketId} onChange={e=>{
-            console.log(e.target.value);
             setBucketId(e.target.value)}} >
             {
               bucket.map((buc,index)=>{
-                   return (<option value={buc.bucketId}>{buc.title}</option>)
+                   return (
+                   <option value={buc.bucketId} onClick={()=>{bucketId=buc.bucketId}}>{buc.title}</option>
+                   )
               })
             }
-
           </Form.Select>
         </Form.Group>
         
       <Button variant="primary" type="submit">
         Submit
       </Button>
-    </Form>  
+    </Form>
+    </div>  
   )
       }

@@ -1,0 +1,113 @@
+{
+  "buckets": [
+    {
+      "bucketId": 1,
+      "title": "Educational Videos",
+      "videos": [
+        101,
+        105
+      ]
+    },
+    {
+      "bucketId": 2,
+      "title": "Comedy Videos",
+      "videos": [
+        102,
+        104
+      ]
+    },
+    {
+      "bucketId": 3,
+      "title": "Sci-Fi Videos",
+      "videos": [
+        103
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": 101,
+      "title": "Harry",
+      "link": "https",
+      "bucketId": 1
+    },
+    {
+      "id": 102,
+      "title": "Harry-2",
+      "link": "https",
+      "bucketId": 2
+    },
+    {
+      "id": 103,
+      "title": "Harry-3",
+      "link": "https",
+      "bucketId": 3
+    },
+    {
+      "id": 104,
+      "title": "Harry-4",
+      "link": "https",
+      "bucketId": 2
+    },
+    {
+      "id": 105,
+      "title": "Harry-5",
+      "link": "https",
+      "bucketId": 1
+    },
+    {
+      "id": 106
+    },
+    {
+      "id": 107
+    },
+    {
+      "title": "harry",
+      "link": "https://www.youtube.com/watch?v=E16WhXcIghM",
+      "bucketId": "",
+      "id": 108
+    },
+    {
+      "title": "Abhi",
+      "link": "www.youtube.com",
+      "bucketId": 2,
+      "id": 109
+    },
+    {
+      "title": "Hello World",
+      "link": "https://www.youtube.com/watch?v=E16WhXcIghM",
+      "bucketId": "2",
+      "id": 110
+    },
+    {
+      "title": "Abhishek Upmanyu",
+      "link": "https://www.youtube.com/watch?v=E16WhXcIghM",
+      "bucketId": "3",
+      "id": 111
+    },
+    {
+      "title": "Hello World",
+      "link": "https://www.youtube.com/watch?v=E16WhXcIghM",
+      "bucketId": "3",
+      "id": 112
+    },
+    {
+      "title": "",
+      "link": "",
+      "bucketId": "2",
+      "id": 113
+    },
+    {
+      "title": "",
+      "link": "",
+      "bucketId": "3",
+      "id": 114
+    },
+    {
+      "title": "Abhishek Upmanyu",
+      "link": "https://www.youtube.com/watch?v=E16WhXcIghM",
+      "bucketId": "2",
+      "id": 115
+    }
+  ]
+}
