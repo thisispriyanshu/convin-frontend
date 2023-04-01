@@ -4,14 +4,17 @@ import Header from '../components/Header'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import {toast} from 'react-toastify'
+import {v4 as uuid} from 'uuid'
 
 export default function CardCreate() {
-  
+  const unique_id = uuid();
+  const small_id = unique_id.slice(0,8)
+  const id=small_id
   const [title,setTitle]=useState("");
   const [link,setLink]=useState("");
   const [bucketId,setBucketId]=useState();
   const [bucket,setBucket]=useState([]);
-  const [videoId,setVideoId]=useState([]);
+  const [videosId,setVideosId]=useState([]);
   const fetchBuckets= async()=>{
   fetch("http://localhost:3000/buckets")
   .then((response) => response.json())
@@ -23,7 +26,10 @@ export default function CardCreate() {
   useEffect(()=>{
     fetchBuckets();
   },[]);
-  
+
+  let pushId= (id)=>{
+    setVideosId(pre=>[...pre,id]);
+  }
 
   let handleSubmit=async(e)=>{
     e.preventDefault();
@@ -32,20 +38,33 @@ export default function CardCreate() {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body:JSON.stringify({
+        id:id,
         title:title,
         link:link,
         bucketId:bucketId,
       }),
     });
     
-    if(res.status===201){
+    let res2=await fetch("http://localhost:3000/buckets",{
+       method: "PUT",
+       headers: {"Content-Type": "application/json"},
+       body:JSON.stringify({
+        videosId:videosId,
+       })
+    });
+
+    if(res.status===201) {
       setTitle("");
       setLink("");
       setBucketId();
+      setVideosId();
       toast.success("Card Saved Sucessfully")
     }
+    else if(res.status===201){
+      toast.error(res2.status + 'Failed due to res2!');
+    }
     else{
-      toast.error('Failed!');
+      toast.error('Failed due to res!');
     }
   }
   catch(err){
@@ -57,7 +76,7 @@ export default function CardCreate() {
     <div>
       <Header/>
       <br/>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} key={small_id} >
       <Form.Group className="mb-3" controlId="formBasicVideoTitle">
         <Form.Label>Video Title</Form.Label>
         <Form.Control type="text" placeholder="Video Title" value={title} onChange={e=>setTitle(e.target.value)}/>
@@ -75,13 +94,23 @@ export default function CardCreate() {
             {
               bucket.map((buc,index)=>{
                    return (
-                   <option value={buc.bucketId} onClick={()=>{bucketId=buc.bucketId}}>{buc.title}</option>
+                   <option key={index} value={buc.bucketId} onClick={()=>{bucketId=buc.bucketId}}>
+                    {buc.title}</option>
                    )
               })
             }
           </Form.Select>
         </Form.Group>
-        
+
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="cardSelect">Do you want to see change on HomePage?</Form.Label>
+          <Form.Select id="cardSelect" as="select" value={id} onChange={e=>{
+            pushId(e.target.value)}} >
+            <option value={id} onClick={()=>{pushId(id)}}>Yes</option>
+            {/* <option>No</option> */}
+          </Form.Select>
+        </Form.Group>
+
       <Button variant="primary" type="submit">
         Submit
       </Button>

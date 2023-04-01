@@ -32,7 +32,7 @@ export default function BucketHomePage() {
               </Row>
               <Row>
                 <Col xs={12} md={6} lg={4} className='my-2'>{
-                    buc.videos.map((vid, index) => {
+                    buc.videosId.map((vid, index) => {
                       return (
                         <CardPage id={vid} />
                       )
