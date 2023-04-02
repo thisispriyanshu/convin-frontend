@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ReactPlayer from 'react-player'
+import VideoPlayPage from '../pages/VideoPlayPage';
 
 export default function (props) {
     const [video, setVideo] = useState([]);
@@ -14,10 +15,9 @@ export default function (props) {
     useEffect(() => {
         fetchVideos();
     }, []);
-
-    const playVideo=(ur)=>{
-        <ReactPlayer url={ur}/>
-    }
+     const playVideo=({vid})=>{
+        <VideoPlayPage id={vid}/>
+     }
     return (
         <div>
             <Card>
@@ -28,6 +28,7 @@ export default function (props) {
                     </Card.Text>
                     <div>
                         <Button className='m-1' variant="warning">Edit</Button>
+                        
                         <Button className='m-1' variant="primary" onClick={()=>playVideo(video.link)}>Play Video</Button>
                         <Button className='m-1' variant="danger">Delete</Button>
                     </div>
